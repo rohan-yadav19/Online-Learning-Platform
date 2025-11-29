@@ -7,7 +7,7 @@ const app = express();
 
 // CORS Middleware - MUST be first, before any routes
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://online-learning-platform-chi-one.vercel.app/' || 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],

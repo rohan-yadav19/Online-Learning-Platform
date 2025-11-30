@@ -37,47 +37,13 @@ const CoursesPage = () => {
       if (searchTerm) params.search = searchTerm;
 
       const response = await axios.get(`${API_BASE_URL}/courses`, { params });
-      setCourses(response.data);
+      console.log('Courses fetched:', response.data);
+      setCourses(response.data || []);
     } catch (error) {
-      // Fallback to mock data
-      setCourses([
-        {
-          _id: '1',
-          title: 'Complete Web Development Bootcamp',
-          category: 'Technology',
-          instructor: { name: 'John Doe' },
-          rating: 4.8,
-          totalRatings: 1234,
-          price: 89.99,
-          studentsEnrolled: 5000,
-          lessons: [{}, {}, {}, {}],
-          difficulty: 'Beginner',
-        },
-        {
-          _id: '2',
-          title: 'Advanced React Patterns',
-          category: 'Technology',
-          instructor: { name: 'Jane Smith' },
-          rating: 4.9,
-          totalRatings: 856,
-          price: 79.99,
-          studentsEnrolled: 3200,
-          lessons: [{}, {}, {}],
-          difficulty: 'Advanced',
-        },
-        {
-          _id: '3',
-          title: 'Digital Marketing Mastery',
-          category: 'Marketing',
-          instructor: { name: 'Mike Johnson' },
-          rating: 4.7,
-          totalRatings: 2100,
-          price: 99.99,
-          studentsEnrolled: 4500,
-          lessons: [{}, {}, {}, {}, {}],
-          difficulty: 'Intermediate',
-        },
-      ]);
+      console.error('Error fetching courses:', error);
+      console.error('API URL:', API_BASE_URL);
+      // Set empty array instead of mock data to see actual errors
+      setCourses([]);
     } finally {
       setLoading(false);
     }

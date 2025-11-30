@@ -8,7 +8,8 @@ const app = express();
 // CORS Middleware - MUST be first, before any routes
 const allowedOrigins = [
   "https://online-learning-platform-chi-one.vercel.app",
-  "http://localhost:3000"
+  "https://online-learning-platform-gy4x11dpy.vercel.app",
+  "https://online-learning-platf-git-b1dfc7-yadavrohan98040-9369s-projects.vercel.app"
 ];
 
 app.use(
